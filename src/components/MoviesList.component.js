@@ -1,0 +1,25 @@
+
+const MoviesList = ({movies, setMoviePopup, setSelectedMovie}) => {
+
+    const onImageClick = (movie) => {
+        setMoviePopup(true);
+        setSelectedMovie(movie);
+    }
+
+    return (
+        <>
+            {movies.map((movie, index) => 
+                <div 
+                  key={`movie-${index}`} 
+                  className="ens-image-container d-flex justify-content-start"
+                  onClick={() => onImageClick(movie)}
+                >
+                    <img src={movie.Poster} alt={`movie-${index}`}></img>
+                    <div className="ens-overlay"></div>
+                </div>
+            )}
+        </>
+    )
+}
+
+export default MoviesList;
