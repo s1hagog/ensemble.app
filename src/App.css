@@ -13,21 +13,90 @@ body {
   overscroll-behavior-inline: contain;
 }
 
+@media only screen and (max-width: 575.98px) {
+    .ens-media-scroller {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 37%;
+      
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+}
+
+@media only screen and (max-width: 767.98px) {
+    .ens-media-scroller {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 28%;
+      
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+}
+
+@media only screen and (max-width: 991.98px) {
+    .ens-media-scroller {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 22%;
+      
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+}
+
+@media only screen and (max-width: 1199.98px) {
+    .ens-media-scroller {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 22%;
+      
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+}
+
+@media only screen and (max-width: 1399.98px) {
+    .ens-media-scroller {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 22%;
+      
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+}
+
+@media only screen and (min-width: 1400.98px) {
+    .ens-media-scroller {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 22%;
+      
+        overflow-x: auto;
+        overscroll-behavior-inline: contain;
+    }
+}
+
 /* Hide scrollbar for Chrome, Safari and Opera */
 .ens-media-scroller::-webkit-scrollbar {
     display: none;
 }
 
 .ens-image-container {
-	position: relative;
 	transition: transform 0.2s;
 }
 
-.ens-image-container:hover {
+.ens-movie-post {
+	position: relative;
+}
+
+.ens-movie-post:hover {
 	cursor: pointer;
 }
 
-.ens-image-container:hover .ens-overlay {
+.ens-movie-post:hover .ens-overlay {
 	opacity: 1;
 }
 

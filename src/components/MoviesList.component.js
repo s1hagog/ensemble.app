@@ -12,10 +12,11 @@ const MoviesList = ({movies, setMoviePopup, setSelectedMovie}) => {
                 <div 
                   key={`movie-${index}`} 
                   className="ens-image-container d-flex justify-content-start"
-                  onClick={() => onImageClick(movie)}
                 >
-                    <img src={movie.Poster} alt={`movie-${index}`}></img>
-                    <div className="ens-overlay"></div>
+                    <div className="ens-movie-post" data-movie-imdb={movie.imdbID} onClick={() => onImageClick(movie)}>
+                        <img src={movie.Poster} alt={`movie-${index}`}></img>
+                        <div className="ens-overlay"></div>
+                    </div>
                 </div>
             )}
         </>
