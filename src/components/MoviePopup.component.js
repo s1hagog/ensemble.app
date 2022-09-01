@@ -1,8 +1,8 @@
 
-const MoviePopup = ({trigger, setTrigger, movie}) => {
+const MoviePopup = ({ trigger, setTrigger, movie }) => {
 
     return (trigger) ? (
-        <div className="ens-movie-popup">
+        <div className="ens-movie-popup" data-testid="test-ens-movie-popup">
             <div className="ens-popup-inner">
                 <div className="left-block">
                     <div className="ens-movie-image">
