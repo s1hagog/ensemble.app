@@ -1,12 +1,11 @@
-import './App.css';
 import { useEffect, useState } from 'react';
-import { getRandomQuery, selectRandomMovie, sliderScrollToMovie } from './utils/functions';
+import { getRandomQuery, selectRandomMovie, sliderScrollToMovie } from './utils/functions/functions';
 
 // Simple Components
 import Header from './components/Header.component';
-import Searchbox from './components/Searchbox.component';
-import MoviesList from './components/MoviesList.component';
-import MoviePopup from './components/MoviePopup.component';
+import Searchbox from './components/ui/Searchbox.component';
+import MoviesList from './pages/Home/MoviesList';
+import MoviePopup from './pages/Home/MoviePopup';
 
 
 function App() {
@@ -17,16 +16,7 @@ function App() {
   const [randomMovieRequest, setRandomMovieRequest] = useState(false);
   const [error, setError] = useState(null);
 
-  const getMoviesRequest = async () => {
-    const url = `http://www.omdbapi.com/?s=${searchMovie}&apikey=6b0d5914`;
-    const response = await fetch(url);
-    const json = await response.json();
-    
-    if(json.Search){
-      setMovies(json.Search);
-    }
-  }
-
+  
   
   const prepareRandomMovieSearch = async () => {
     const randomQuery = getRandomQuery();
@@ -34,15 +24,19 @@ function App() {
     setSearchMovie(randomQuery);
   }
 
-  const testScrolling = () => {
-    sliderScrollToMovie(selectedMovie);
-  }
-
-  
-
   useEffect (()=> {
     // We dont want to do anything with no movie to search
     if(!searchMovie) return;
+
+    const getMoviesRequest = async () => {
+      const url = `http://www.omdbapi.com/?s=${searchMovie}&apikey=6b0d5914`;
+      const response = await fetch(url);
+      const json = await response.json();
+      
+      if(json.Search){
+        setMovies(json.Search);
+      }
+    }
 
     getMoviesRequest();
     
@@ -50,11 +44,12 @@ function App() {
 
   useEffect (()=> {
     // We dont want to do anything if there is no movies in the list
-    if(!movies || movies.length==0) return;
+    if(!movies || movies.length === 0) return;
+    console.log('hello');
 
     if(randomMovieRequest){
         const randomMovie = selectRandomMovie(movies);
-        // sliderScrollToMovie(randomMovie);
+        sliderScrollToMovie(randomMovie);
         setSelectedMovie(randomMovie);
         setMoviePopup(true);
         setRandomMovieRequest(false);
@@ -72,13 +67,11 @@ function App() {
           />
         </div>
       </div>
-      <div className="ens-media-scroller ens-snaps-inline">
-        <MoviesList 
-          movies={movies} 
-          setMoviePopup={setMoviePopup}
-          setSelectedMovie={setSelectedMovie}
-        />
-      </div>
+      <MoviesList 
+        movies={movies} 
+        setMoviePopup={setMoviePopup}
+        setSelectedMovie={setSelectedMovie}
+      />
       <div className="d-flex justify-content-center mt-4">
         <button className="btn btn-dark mt-4" onClick={prepareRandomMovieSearch}>Find me a random movie</button>
       </div>

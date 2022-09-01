@@ -7,7 +7,7 @@ const MoviesList = ({ movies, setMoviePopup, setSelectedMovie }) => {
     }
 
     return (
-        <div className="ens-movielist" data-testid="test-ens-movielist">
+        <div className="ens-media-scroller ens-snaps-inline" data-testid="test-ens-movielist">
             {movies.map((movie, index) =>
                 <div
                     key={`movie-${index}`}

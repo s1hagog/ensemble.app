@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom'
 import { render, screen, cleanup } from '@testing-library/react';
 import TestRenderer from 'react-test-renderer';
-import MoviePopup from '../MoviePopup.component';
+import MoviePopup from '../MoviePopup';
 
 afterEach(() => {
     cleanup();
