@@ -15,6 +15,7 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState({});
   const [moviePopup, setMoviePopup] = useState(false);
   const [randomMovieRequest, setRandomMovieRequest] = useState(false);
+  const [error, setError] = useState(null);
 
   const getMoviesRequest = async () => {
     const url = `http://www.omdbapi.com/?s=${searchMovie}&apikey=6b0d5914`;
