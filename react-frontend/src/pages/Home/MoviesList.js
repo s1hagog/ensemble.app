@@ -1,4 +1,4 @@
-
+// Movie list component that renders the list of movies received from the API
 const MoviesList = ({ movies, setMoviePopup, setSelectedMovie }) => {
 
     const onImageClick = (movie) => {

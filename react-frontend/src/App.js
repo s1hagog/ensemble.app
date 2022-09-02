@@ -19,13 +19,14 @@ function App() {
   const [error, setError] = useState(null);
 
 
-
+  // Function to prepare random movie search
   const prepareRandomMovieSearch = async () => {
     const randomQuery = getRandomQuery();
     setRandomMovieRequest(true);
     setSearchMovie(randomQuery);
   }
 
+  // Main hook to the searchbox that triggers on changing user input
   useEffect(() => {
     // We dont want to do anything with no movie to search
     if (!searchMovie) return;
@@ -44,10 +45,15 @@ function App() {
 
   }, [searchMovie]);
 
+
+  // A hook that tracks changes in the movie list that checks if it was a request for random movie
+  // or a user search for particular movie.
+  // Side Note: I am quite sure it is not the best approach. However I could not find a way to ask my
+  // random movie request to wait for movie list to render. The problem was that, because of asynchronous behaviour
+  // the random movie request would always be first and not wait for movie list to render, causing errors or undesired behaviour.
   useEffect(() => {
     // We dont want to do anything if there is no movies in the list
     if (!movies || movies.length === 0) return;
-    console.log('hello');
 
     if (randomMovieRequest) {
       const randomMovie = selectRandomMovie(movies);

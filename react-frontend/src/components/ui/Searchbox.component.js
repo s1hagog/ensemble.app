@@ -1,4 +1,4 @@
-
+// Search box component for user movie search
 const Searchbox = ({ value, setSearchMovie }) => {
 
 

@@ -1,4 +1,4 @@
-
+// Movie popup component that user sees when clicking on the poster
 const MoviePopup = ({ trigger, setTrigger, movie }) => {
 
     return (trigger) ? (

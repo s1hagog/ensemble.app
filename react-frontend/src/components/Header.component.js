@@ -1,4 +1,4 @@
-
+// Simple Header component
 const Header = ({ heading }) => {
     return (
         <div data-testid="test-ens-header" className="col">
