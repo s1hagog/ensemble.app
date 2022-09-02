@@ -1,0 +1,28 @@
+GET http:://localhost:5000/api/movies
+
+###
+GET http://localhost:5000/api/movies/2
+
+###
+POST http://localhost:5000/api/moives
+Content-Type: application/json
+{
+    "imdbID": "tt12345",
+    "name": "Test Movie",
+    "description": "test description",
+    "year": "2022",
+    "poster": "https://imageurl.com/someimage.jpg"
+}
+
+
+###
+DELETE http://localhost:5000/api/movies/5
+
+###
+PATCH http://localhost:5000/api/movies/5
+Content-Type: application/json
+{
+    "name": "Update Test Movie",
+    "description": " newtest description",
+    "poster": "https://imageurl.com/anotherposter.jpg"
+}
